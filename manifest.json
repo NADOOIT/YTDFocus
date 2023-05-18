@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Business Helper",
+  "version": "1.0",
+  "description": "This extension will help ensure you only watch business-related videos on YouTube during weekdays.",
+  "permissions": [
+    "storage",
+    "tabs",
+    "webNavigation",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
